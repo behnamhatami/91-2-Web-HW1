@@ -1,0 +1,97 @@
+body{
+	width: 99%;
+}
+
+.button_container{
+	width: 30%;
+	margin: auto;
+}
+
+.container{
+	width: 675px;
+	background-color: #ffcfff;
+	border-radius: 6px;
+	margin: auto;
+}
+
+.gallary{
+	padding: 15px;
+}
+
+.slide-show{
+	padding: 15px;
+	display: none;
+}
+
+.button{
+	display: inline-block;
+	font-size: 18px;
+	border: 1px solid black;
+	border-radius: 6px;
+	text-align: center;
+	margin: 2px;
+	padding: 2px;
+	cursor: pointer;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	box-shadow: 0px 0px 3px #000;
+}
+
+.button:hover{
+	background-color: #cf8fff;
+}
+
+.title{
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 30px;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.image{
+	float: left;
+	width: 200px;
+	height: 200px;
+	background-color: #cfffcf;
+	border:2px dotted rgb(79, 120, 124);
+	border-radius: 6px;
+	margin: 5px;
+	padding: 0px;
+}
+
+.image:hover{
+	border: 2px solid rgb(79, 120, 124);
+	background-color: #afffaf
+}
+
+.clear{
+	clear: both;
+}
+
+.convas{
+	display: block;
+	height: 80%;
+	width: 90%;
+	margin: auto;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	background-color: #eeeeee;
+}
+
+.image_title{ 
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.image-show{
+	position: absolute;
+	width: inherit;
+	height: 600px;
+	display: none;
+	opacity: 0.5;
+	border-radius: 10px;
+	background-color: black;
+	margin: auto;
+}
