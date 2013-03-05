@@ -2,56 +2,60 @@
 <html lang="en">
 	<head>
 		<link href="css/sample.css" rel="stylesheet">
-		<script src="js/sample.js"></script>
+		<script>
+			image_loc = ['img/1.png', 'img/2.png', 'img/3.png', 'img/4.png', 'img/5.png', 'img/6.png']
+		</script>
 		<title>Sample Galary</title>
 	</head>
 	<body>
-		<div class="container">
-			<div class="image-show">
+		<div class="wrapper">
+			<div class="image_show_box" id="image_show_box_0">
+				<img  class="image image_show" id="image_show_0"></img>
 			</div>
 			<div class="title">
 				My Image Galary
 			</div>
-			<div class="button_container">
-				<div class="button" style="background-color: #cf8fff;">
+			<div class="button_box">
+				<div class="button" id="button_gal" onclick="gallary()">
 					Gallary
 				</div>
-				<div class="button">
+				<div class="button" id="button_sls" onclick="slide_show()">
 					Slide Show
 				</div>
 				<div class="clear"> </div>
 			</div>
 			<div class="clear"></div>
-			<div class="slide-show">
-				
+			<div class="slide_show" id="slide_show_0">
+				<img class="image image_show" id="image_show_1"></img>
 			</div>
-			<div class="gallary">
-				<div class="image">
-					 <canvas id="myCanvas1" class="convas" width="100" height="100"></canvas>
+			<div class="gallary" id="gallary_0">
+				<div class="image_box" onclick="show_image(0)">
+					 <img class="image" id="image_0"></img>
 					 <div class="image_title">my title</div>
 				</div>
-				<div class="image">
-					 <canvas id="myCanvas1" class="convas" width="100" height="100"></canvas>
+				<div class="image_box" onclick="show_image(1)">
+					 <img class="image" id="image_1"></img>
 					 <div class="image_title">my title</div>
 				</div>
-				<div class="image">
-					 <canvas id="myCanvas1" class="convas" width="100" height="100"></canvas>
+				<div class="image_box" onclick="show_image(2)">
+					 <img class="image" id="image_2"></img>
 					 <div class="image_title">my title</div>
 				</div>
-				<div class="image">
-					 <canvas id="myCanvas1" class="convas" width="100" height="100"></canvas>
+				<div class="image_box" onclick="show_image(3)">
+					 <img class="image" id="image_3"></img>
 					 <div class="image_title">my title</div>
 				</div>
-				<div class="image">
-					 <canvas id="myCanvas1" class="convas" width="100" height="100"></canvas>
+				<div class="image_box" onclick="show_image(4)">
+					 <img class="image" id="image_4"></img>
 					 <div class="image_title">my title</div>
 				</div>
-				<div class="image">
-					 <canvas id="myCanvas1" class="convas" width="100" height="100"></canvas>
+				<div class="image_box" onclick="show_image(5)">
+					 <img class="image" id="image_5"></img>
 					 <div class="image_title">my title</div>
 				</div>
-				<div class="clear"> </div>
+				<div class="clear"> </div> 
 			</div>
 		</div>
+	<script src="js/sample.js"></script>
 	</body>
 </html>
