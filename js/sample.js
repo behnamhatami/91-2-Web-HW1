@@ -8,9 +8,48 @@ var slide = {
 function show_image(num) {
     var img = document.getElementById('image_show_0');
     var div = document.getElementById('image_show_box_0');
+    div.onclick = close_image_show;
     img.src = image_loc[num];
     div.style.display = 'block';
-    transition(img, 0, 1, 0.02, 10, function(){});
+    transition(img, 0, 1, 0.08, 4, 
+        function(element, count){
+            element.style.opacity=count
+        }, 
+        function(){
+
+        }
+    );
+    transition(div, 0, 0.5, 0.04, 4, 
+        function(element, count){
+            element.style.backgroundColor="rgba(0, 0, 0, " + count + ")";
+        },
+        function(){
+
+        }
+    );
+}
+
+function close_image_show(){
+    var img = document.getElementById('image_show_0');
+    var div = document.getElementById('image_show_box_0');
+    div.onclick = null;
+    transition(img, 1, 0, 0.08, 5, 
+        function(element, count){
+            element.style.opacity=count
+        },
+        function(){
+            img.src = null;
+            div.style.display = 'none';
+        }
+    );
+    transition(div, 0.5, 0, 0.04, 5, 
+        function(element, count){
+            element.style.backgroundColor="rgba(0, 0, 0, " + count + ")";
+        },
+        function(){
+
+        }
+    );
 }
 
 function gallary(){
@@ -30,7 +69,7 @@ function slide_show(){
     clearInterval(slide.timeout_countdown);
     slide.count = 0;
     slide.cur = 0;
-    
+
     var gal = document.getElementById('button_gal');
     var sls = document.getElementById('button_sls');
     gal.style.backgroundColor = '';
@@ -45,17 +84,17 @@ function slide_show(){
     img_show.src = image_loc[slide.count];
 
     slide.timeout_countdown = setInterval(function(){
-            transition(img_show, 1, 0, 0.02, 10, function(){
+            transition(img_show, 1, 0, 0.05, 10, function(element, count){element.style.opacity=count}, function(){
                 slide.count = (slide.count + 1) % image_loc.length
                 img_show.src = image_loc[slide.count];
-                transition(img_show, 0, 1, 0.02, 10, function(){});
+                transition(img_show, 0, 1, 0.02, 10, function(element, count){element.style.opacity=count}, function(){});
             });
         }, 3000);
 }
 
-function transition(img, init_opp, final_opp, unit_opp_change, unit_time, callback){
+function transition(element, init_opp, final_opp, unit_opp_change, unit_time, set_count, callback){
     var count = init_opp;
-    img.style.opacity = count;
+    set_count(element, count);
     var inc = final_opp > init_opp ? 1 : 0;
     unit_opp_change = inc == 1 ? unit_opp_change : -unit_opp_change; 
 
@@ -74,7 +113,7 @@ function transition(img, init_opp, final_opp, unit_opp_change, unit_time, callba
             }
         }
 
-        img.style.opacity = count;
+        set_count(element, count);
         if (end){
             clearInterval(interval);
             callback();
