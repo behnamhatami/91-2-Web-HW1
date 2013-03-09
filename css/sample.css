@@ -36,12 +36,13 @@ body{
 	cursor: pointer;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	box-shadow: 0px 0px 3px #000;
-	background-color: #F0E68C;
+	background-color: rgb(254, 240,  148);
 
 }
 
 .button:hover{
-	background-color: rgb(249, 234, 132);
+	background-color: rgb(254, 236,  109);
+	box-shadow: 2px 2px 5px #000;
 }
 
 .clear{
@@ -57,16 +58,16 @@ body{
 	float: left;
 	width: 200px;
 	height: 200px;
-	background-color: #cfffcf;
-	border:2px dotted rgb(79, 120, 124);
+	background-color: rgb(252, 254, 207);
+	border:2px solid rgb(79, 120, 124);
 	border-radius: 6px;
 	margin: 5px;
 	padding: 0px;
 }
 
 .image_box:hover{
-	border: 2px solid rgb(79, 120, 124);
-	background-color: #afffaf
+	border: 2px dotted rgb(79, 120, 124);
+	background-color: rgb(251,254,186);
 }
 
 .image{
