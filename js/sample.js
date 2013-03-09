@@ -5,6 +5,8 @@ var slide = {
     img_num: null
 };
 
+var image_loc = new Array();
+
 function show_image(num) {
     var img = document.getElementById('image_show_0');
     var div = document.getElementById('image_show_box_0');
@@ -52,17 +54,23 @@ function close_image_show(){
     );
 }
 
-function gallary(){
+function gallery(){
     clearInterval(slide.timeout_countdown);
     var gal = document.getElementById('button_gal');
     var sls = document.getElementById('button_sls');
     sls.style.backgroundColor = '';
     gal.style.backgroundColor = '#FFD700';
 
-    var gal = document.getElementById('gallary_0');
-    var sls = document.getElementById('slide_show_0');
+    gal = document.getElementById('gallery_0');
+    var sls_0 = document.getElementById('slide_show_0');
+    var sls_1 = document.getElementById('slide_show_1');
     gal.style.display = 'block';
-    sls.style.display = 'none';
+    sls_0.style.display = 'none';
+    sls_1.style.display = 'none';
+}
+
+function next(count){
+    return (count + 1) % image_loc.length;
 }
 
 function slide_show(){
@@ -75,21 +83,30 @@ function slide_show(){
     gal.style.backgroundColor = '';
     sls.style.backgroundColor = '#FFD700';
 
-    var gal = document.getElementById('gallary_0');
-    var sls = document.getElementById('slide_show_0');
-    sls.style.display = 'block';
+    gal = document.getElementById('gallery_0');
+    var sls_0 = document.getElementById('slide_show_0');
+    var sls_1 = document.getElementById('slide_show_1');
+    sls_0.style.display = 'block';
+    sls_1.style.display = 'block';
     gal.style.display = 'none';
 
-    var img_show = document.getElementById('image_show_1');
-    img_show.src = image_loc[slide.count];
-
-    slide.timeout_countdown = setInterval(function(){
-            transition(img_show, 1, 0, 0.05, 10, function(element, count){element.style.opacity=count}, function(){
-                slide.count = (slide.count + 1) % image_loc.length
-                img_show.src = image_loc[slide.count];
-                transition(img_show, 0, 1, 0.02, 10, function(element, count){element.style.opacity=count}, function(){});
+    var img_show_1 = document.getElementById('image_show_1');
+    var img_show_2 = document.getElementById('image_show_2');
+    img_show_1.src = image_loc[0];
+    img_show_2.src = '';
+    transition(img_show_1, 0, 1, 0.05, 10, function(element, count){element.style.opacity=count}, function(){
+        slide.timeout_countdown = setInterval(function(){
+            transition(img_show_1, 1, 0, 0.1, 25, function(element, count){element.style.opacity=count}, function(){});
+            slide.count = next(slide.count);
+            img_show_2.src = image_loc[slide.count];
+            transition(img_show_2, 0, 1, 0.05, 25, function(element, count){element.style.opacity=count}, function(){
+                img_show_1.src = image_loc[slide.count];
+                img_show_1.style.opacity = 1;
+                img_show_2.src = '';
             });
-        }, 3000);
+        }, 5000);
+
+    });
 }
 
 function transition(element, init_opp, final_opp, unit_opp_change, unit_time, set_count, callback){
@@ -120,9 +137,13 @@ function transition(element, init_opp, final_opp, unit_opp_change, unit_time, se
         }
     }, unit_time);
 }
-
-for (var i = 0; i < image_loc.length; i++) {
-    var img = document.getElementById('image_' + i);
-    img.src = image_loc[i];
+function init(){ 
+    var gallery = document.getElementById('gallery_0');
+    for (var i = 0; i < gallery.childElementCount - 1; i++) {
+        var image_box = gallery.children[i];
+        var image = image_box.children[0];
+        image_loc.push(image.src);
+    }
 }
-gallary();
+init();
+gallery();

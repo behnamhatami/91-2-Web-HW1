@@ -5,7 +5,7 @@ body{
 .wrapper{
 	z-index: 50;
 	width: 675px;
-	background-color: #66CDAA;
+    background-color: #66CDAA;
 	border-radius: 6px;
 	margin: auto;
 }
@@ -35,7 +35,7 @@ body{
 	padding: 2px;
 	cursor: pointer;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	box-shadow: 0px 0px 3px #000;
+	box-shadow: 0 0 3px #000;
 	background-color: rgb(254, 240,  148);
 
 }
@@ -49,7 +49,7 @@ body{
 	clear: both;
 }
 
-.gallary{
+.gallery{
 	padding: 15px;
 	display: none;
 }
@@ -62,7 +62,7 @@ body{
 	border:2px solid rgb(79, 120, 124);
 	border-radius: 6px;
 	margin: 5px;
-	padding: 0px;
+	padding: 0;
 }
 
 .image_box:hover{
@@ -98,12 +98,17 @@ body{
 }
 
 .image_show{
-	margin-top: 30px;
 	border-radius: 10px;
-	margin-bottom: 30px;
+    height: 90%;
+    width: 85%;
 }
 
 .slide_show{
-	padding: 15px;
-	display: none;
+    z-index: 100;
+    position: absolute;
+    width: inherit;
+    display: none;
+    border-radius: 10px;
+    background-color: #66CDAA;
+    margin: auto;
 }
